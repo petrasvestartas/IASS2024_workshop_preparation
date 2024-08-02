@@ -3,7 +3,7 @@ from compas_occ.brep import OCCBrep
 from compas_viewer import Viewer
 
 model = Model("data/NEST_backbone_cleaned_up.ifc", use_occ=True)
-
+model.show()
 breps = []
 counter = 0
 for element in model.building_elements:
