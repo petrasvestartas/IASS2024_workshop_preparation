@@ -13,7 +13,7 @@ for element in model.building_elements:
         element.geometry.heal() # joints faces into a closed brep
         element.geometry.scale(0.001)
         breps.append(element.geometry)
-        
+                
 # Visualize geometry in compas_viewer
 viewer = Viewer()
 viewer.scene.add(Collection(breps), name="Brep")
