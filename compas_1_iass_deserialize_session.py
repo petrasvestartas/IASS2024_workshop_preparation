@@ -2,21 +2,17 @@ import compas
 from compas_viewer import Viewer
 
 # Load session made in Rhino8
-session = compas.json_load("data/session.json")
-polylines_lists = session["polylines_lists"]
-meshes_lists = session["meshes_lists"]
+session = compas.json_load("data/session_nest_units_by_storey.json")
+nest_units_by_storey = session["nest_units_by_storey"]
 
 
 # Visualize geometry in compas_viewer
 viewer = Viewer()
-for polylines_list in polylines_lists:
-    for polyline in polylines_list:
-        polyline.scale(0.001)
-        viewer.scene.add(polyline)
 
-for meshes_list in meshes_lists:
+for meshes_list in nest_units_by_storey:
+    group = viewer.scene.add(compas.geometry.Frame(compas.geometry.Point(0,0,0)))
     for mesh in meshes_list:
         mesh.scale(0.001)
-        viewer.scene.add(mesh)
+        viewer.scene.add(mesh, parent=group)
 
 viewer.show()

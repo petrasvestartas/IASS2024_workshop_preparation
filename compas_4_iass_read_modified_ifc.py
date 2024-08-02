@@ -3,7 +3,7 @@ from compas_occ.brep import OCCBrep
 from compas_viewer import Viewer
 from compas_viewer.scene import Collection
 from compas import json_load
-model = Model("data/create_geometry.ifc", use_occ=False, verbose=True)
+model = Model("data/NEST_backbone_cleaned_up_units.ifc", use_occ=True)
 
 breps = []
 for element in model.building_elements:
@@ -14,10 +14,7 @@ for element in model.building_elements:
         element.geometry.scale(0.001)
         breps.append(element.geometry)
         
-
-print("number of breps: " + len(breps))
 # Visualize geometry in compas_viewer
 viewer = Viewer()
 viewer.scene.add(Collection(breps), name="Brep")
-
 viewer.show()

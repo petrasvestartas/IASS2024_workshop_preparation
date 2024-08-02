@@ -18,9 +18,13 @@ element1 = model.create("IfcWall", geometry=box, frame=Frame([0, 0, 0]), name="W
 element2 = model.create("IfcRoof", geometry=mesh, frame=Frame([0, 0, 5]), name="Roof", parent=storey)
 element3 = model.create(geometry=sphere, frame=Frame([0, 5, 0]), name="Sphere", parent=storey, properties={"Custom_Pset": {"Custom_Property": "Custom Value"}})
 
+
+
 model.print_spatial_hierarchy(max_depth=5)
-model.save("data/create_geometry.ifc")
+model.save("temp/create_geometry.ifc")
+
 
 # Load IFC file
-open_model = Model("data/create_geometry.ifc")
-open_model.show()
+open_model = Model("temp/create_geometry.ifc", load_geometries=True)
+
+# open_model.show()
