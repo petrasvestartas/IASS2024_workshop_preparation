@@ -3,7 +3,7 @@ from compas_occ.brep import OCCBrep
 from compas_viewer import Viewer
 from compas_viewer.scene import Collection
 from compas import json_load
-model = Model("data/NEST_backbone_cleaned_up_units.ifc", use_occ=True)
+model = Model("data/create_geometry.ifc", use_occ=False, verbose=True)
 
 breps = []
 for element in model.building_elements:
