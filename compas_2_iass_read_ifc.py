@@ -1,5 +1,4 @@
 from compas_ifc.model import Model
-from compas_occ.brep import OCCBrep
 from compas_viewer import Viewer
 from compas_viewer.scene import Collection
 from compas import json_load

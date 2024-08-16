@@ -1,6 +1,5 @@
 from compas_ifc.model import Model
 from compas_occ.brep import OCCBrep
-from compas_viewer import Viewer
 
 model = Model("data/NEST_backbone_cleaned_up.ifc", use_occ=True)
 model.show()
